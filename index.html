@@ -1,19 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUSCADOR</title>
+    <title>Buscador Claro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: #333;
         }
         .container {
             max-width: 800px;
@@ -28,80 +28,55 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #E60000;
+            font-size: 24px;
         }
         .search-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            gap: 10px;
         }
-        #clienteNombre {
-            width: 70%;
-            padding: 8px;
-            margin-right: 10px;
-        }
-        .search-bar {
-            padding: 8px;
+        #search-bar {
             width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #search-bar:focus {
+            border-color: #E60000;
         }
         .case-button {
             display: block;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #28a745; /* Verde */
+            padding: 12px;
+            background-color: #E60000;
             color: white;
             text-align: center;
             border: none;
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .case-button:hover {
-            background-color: #218838; /* Verde oscuro */
-        }
-        .result {
-            background-color: #ffffff;
-            padding: 20px;
-            margin-top: 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .result h3 {
-            margin-top: 0;
-            color: #28a745;
-        }
-        .result p {
-            font-size: 16px;
-            color: #555;
-        }
-        .feedback {
-            margin-top: 20px;
-            background-color: #f0f8ff;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        .feedback input[type="checkbox"] {
-            margin-right: 10px;
+            background-color: #cc0000;
+            transform: scale(1.02);
         }
         .alert {
-            background-color: #fff3cd;
-            color: #856404;
+            background-color: #FFF4F4;
+            color: #E60000;
             padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 4px;
+            margin-top: 10px;
             text-align: center;
+            font-size: 14px;
         }
         .close-btn {
-            background-color: #dc3545;
+            background-color: #E60000;
             color: white;
             border: none;
             border-radius: 4px;
@@ -111,29 +86,43 @@
             margin-top: 10px;
         }
         .close-btn:hover {
-            background-color: #c82333;
+            background-color: #cc0000;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+            .case-button {
+                font-size: 14px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>BUSCADOR DE PROCESOS GENERALES PASO A PASO</h1>
-
-        
-        <input type="text" id="search-bar" class="search-bar" placeholder="Buscar casos...">
-
-        <div class="alert" id="reminderAlert" style="display: none;">Recuerda utilizar una frase empática durante la llamada.</div>
-
+        <h1>Buscador de Procesos Generales Claro</h1>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Buscar casos...">
+        </div>
+        <div class="alert" id="reminderAlert" style="display: none;">
+            Recuerda utilizar una frase empática durante la llamada.
+        </div>
         <div id="case-buttons">
-            <h1>Frases Empáticas y Despedidas</h1>
-            <button class="case-button" onclick="window.location.href='https://frankpy18.github.io/webretenciones/'">WEB RETENCIONES</button>
-            <button class="case-button" onclick="window.location.href='./inconvenientes.html'">REPORTAR AVERIA</button>
-            <button class="case-button" onclick="window.location.href='./incumplimiento.html'">VALIDACION DE PAGO</button>
+            <button class="case-button" onclick="window.location.href='https://frankpy18.github.io/webretenciones/'">
+                Web Retenciones
+            </button>
+            <button class="case-button" onclick="window.location.href='./inconvenientes.html'">
+                Reportar Avería
+            </button>
+            <button class="case-button" onclick="window.location.href='./incumplimiento.html'">
+                Validación de Pago
+            </button>
         </div>
     </div>
-<script>
-            // Filtrar los botones basados en la búsqueda
+
+    <script>
+        // Filtrar los botones basados en la búsqueda
         document.getElementById("search-bar").addEventListener("input", function() {
             const term = this.value.toLowerCase();
             const buttons = document.querySelectorAll(".case-button");
@@ -142,7 +131,6 @@
                 button.style.display = text.includes(term) ? "block" : "none";
             });
         });
-</script>
-
+    </script>
 </body>
 </html>
