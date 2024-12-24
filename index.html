@@ -132,6 +132,17 @@
             <button class="case-button" onclick="window.location.href='./incumplimiento.html'">VALIDACION DE PAGO</button>
         </div>
     </div>
+<script>
+            // Filtrar los botones basados en la búsqueda
+        document.getElementById("search-bar").addEventListener("input", function() {
+            const term = this.value.toLowerCase();
+            const buttons = document.querySelectorAll(".case-button");
+            buttons.forEach(button => {
+                const text = button.textContent.toLowerCase();
+                button.style.display = text.includes(term) ? "block" : "none";
+            });
+        });
+</script>
 
 </body>
 </html>
